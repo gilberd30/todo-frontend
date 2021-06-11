@@ -10,20 +10,19 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default { 
 data: function () {
   return {
-    todos: [
-      { desc: 'Makan Pisang'},
-      { desc: 'Makan Sayur'},
-      { desc: 'Belajar JS'},
-      { desc: 'Pulang'},
-      { desc: 'Mangstaps'}
-      
-    ],
+    todos: [],
     myText: ''
   }
 },
+
+created: function () {
+  axios.get('http://localhost:3031/todo')
+},
+
 methods: {
   tambah: function () {
     this.todos.push({desc: this.myText})
