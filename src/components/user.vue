@@ -24,7 +24,9 @@ data: function () {
 },
 
 created: function () {
-  axios.get('http://localhost:3031/user')
+     this.username = localStorage.getItem("usr");
+    this.password = localStorage.getItem("pwd");
+  axios.get('http://localhost:3031/user',{ headers: { username, password } })
   .then(result=>{
     this.users = result.data
   })
