@@ -35,7 +35,7 @@ methods: {
     this.todos.push(newItem)
   },
   hapus: function (id) {
-    const index = this.todos.indexOf(id) + 1
+    const index = this.todos.indexOf(id)
     axios.delete(`http://localhost:3031/todo/${id}`)
     this.todos.splice(index,1)
   }
